@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class WordAndSentenceCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a text: ");
+        String inputText = scanner.nextLine();
+        String[] words = inputText.split("\\s+");
+        String[] sentences = inputText.split("[.!?]");
+        System.out.println("Number of words: " + words.length);
+        System.out.println("Number of sentences: " + sentences.length);
+    }
+}
