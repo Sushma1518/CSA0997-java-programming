@@ -1,0 +1,22 @@
+import java.util.*;
+public class CollegeUserCount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+            System.out.print("Total Users: ");
+            int totalUsers = sc.nextInt();
+            if (totalUsers < 0) {
+                System.out.println("Invalid input.");
+            }
+            System.out.print("Staff Users: ");
+            int staffUsers = sc.nextInt();
+            if (staffUsers < 0) {
+                System.out.println("Invalid input. ");
+            }
+            int totUsers = totalUsers - staffUsers;
+            int nonTeachingStaff = staffUsers / 3;
+            System.out.println("total Users: " + totUsers);
+            System.out.println("Non-Teaching Staff Users: " + nonTeachingStaff);
+            int studentUsers=totUsers-nonTeachingStaff;
+            System.out.println("Student Users:"+studentUsers);
+        } 
+    }
