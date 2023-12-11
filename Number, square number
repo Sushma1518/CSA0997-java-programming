@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class NumberAndSquareArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the lower range: ");
+        int lr = scanner.nextInt();
+        System.out.print("Enter the upper range: ");
+        int ur = scanner.nextInt();
+        if(lr>ur)
+        System.out.println("Invalid Input");
+       for(int i=lr;i<=ur;i++){
+           if(i>0)
+           System.out.print("{"+i+","+i*i+"}");
+       } 
+    }
+}
