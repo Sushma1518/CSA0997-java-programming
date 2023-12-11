@@ -1,0 +1,18 @@
+public class CommonCharacters {
+    public static void main(String[] args) {
+        char[] array1 = {'a', 'b', 'c', 'd', 'e'};
+        char[] array2 = {'b', 'd', 'f', 'g', 'h'};
+        System.out.println("Common characters:");
+        printCommonCharacters(array1, array2);
+    }
+    public static void printCommonCharacters(char[] array1, char[] array2) {
+        for (char ch : array1) {
+            for (char ch2 : array2) {
+                if (ch == ch2) {
+                    System.out.print(ch + " ");
+                    break;
+                }
+            }
+        }
+    }
+}
