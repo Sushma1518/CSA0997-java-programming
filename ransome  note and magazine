@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class SubstringCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter ransomeNote: ");
+        String stringA = scanner.nextLine();
+        System.out.print("Enter magazine: ");
+        String stringB = scanner.nextLine();
+        boolean isSubstring = isSubstring(stringA, stringB);
+        System.out.println("Is ransomNote constructed from magazine? " + isSubstring);
+        scanner.close();
+    }
+    public static boolean isSubstring(String A, String B) {
+        return B.indexOf(A) != -1;
+    }
+}
+
