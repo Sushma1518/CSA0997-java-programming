@@ -1,52 +1,63 @@
-import java.util.*;
-public class grade{
+import java.util.Scanner;
+interface Marks {
+    void inputMarks();
+}
+interface Result extends Marks {
+    void calculateTotal();
+    void calculateAggregate();
+    void displayGrade();
+}
+class Student implements Result {
+    private int python, cProgramming, mathematics, physics, chemistry, professionalEthics;
+    private int total;
+    private double aggregate;
+    @Override
+    public void inputMarks() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the marks in python: ");
+        python = scanner.nextInt();
+        System.out.print("Enter the marks in c programming: ");
+        cProgramming = scanner.nextInt();
+        System.out.print("Enter the marks in Mathematics: ");
+        mathematics = scanner.nextInt();
+        System.out.print("Enter the marks in Physics: ");
+        physics = scanner.nextInt();
+        System.out.print("Enter the marks in Chemistry: ");
+        chemistry = scanner.nextInt();
+        System.out.print("Enter the marks in Professional Ethics: ");
+        professionalEthics = scanner.nextInt();
+    }
+    @Override
+    public void calculateTotal() {
+        total = python + cProgramming + mathematics + physics + chemistry + professionalEthics;
+    }
+    @Override
+    public void calculateAggregate() {
+        aggregate = total / 6.0;
+    }
+    @Override
+    public void displayGrade() {
+        System.out.println("Total= " + total);
+        System.out.println("Aggregate = " + aggregate);
+        if (aggregate > 75) {
+            System.out.println("Class: DISTINCTION");
+        } else if (aggregate >= 60 && aggregate <= 75) {
+            System.out.println("Class: FIRST DIVISION");
+        } else if (aggregate >= 50 && aggregate < 60) {
+            System.out.println("Class: SECOND DIVISION");
+        } else if (aggregate >= 40 && aggregate < 50) {
+            System.out.println("Class: THIRD DIVISION");
+        } else {
+            System.out.println("Class: FAIL");
+        }
+    }
+}
+class StudentGradeProgram {
     public static void main(String[] args) {
-            float m1, m2, m3, m4, m5, m6;
-            Scanner sc = new Scanner(System.in);
-            System.out.println("enter marks in python:");
-            m1 = sc.nextInt();
-            System.out.println("enter marks in c programming:");
-            m2 = sc.nextInt();
-            System.out.println("enter marks in mathematics:");
-            m3 = sc.nextInt();
-            System.out.println("enter marks in physics:");
-            m5 = sc.nextInt();
-            System.out.println("enter marks in chemistry:");
-            m6 = sc.nextInt();
-            System.out.println("enter marks in professional ethics:");
-            m4 = sc.nextInt();
-            if (m1 > 100  || m2 > 100 || m3 > 100 || m4 > 100 || m5 > 100 || m6 > 100)
-            {
-                throw new NullPointerException("invalid due to higher values.");
-            }
-            if (m1 <0  || m2 <0 || m3 <0 || m4 <0 || m5 < 0 || m6 < 0)
-            {
-                throw new ArithmeticException("invalid due to higher values.");
-            }
-            float total=m1+m2+m3+m4+m5+m6;
-            float agg=total/6;
-            System.out.println("TOTAL= " + total);
-            System.out.println("Aggregate=" + agg);
-
-            if(agg>75)
-            {
-                System.out.println("DISTINCTION");
-            }
-            else if(agg>=60 && agg<75)
-            {
-                System.out.println("FIRST DIVISION");
-            }
-            else if(agg>=50 && agg<60)
-            {
-                System.out.println("SECOND DIVISION");
-            }
-            else if(agg>=40 && agg<50)
-            {
-                System.out.println("THIRD DIVISION");
-            }
-            else
-            {
-                System.out.println("FAIL");
-            }
-       }
+        Student student = new Student();
+        student.inputMarks();
+        student.calculateTotal();
+        student.calculateAggregate();
+        student.displayGrade();
+    }
 }
