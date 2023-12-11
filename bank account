@@ -1,0 +1,48 @@
+import java.util.Scanner;
+class BankAccount {
+    private String depositorName;
+    private int accountNumber;
+    private char accountType;
+    private double balance;
+    public BankAccount(int accountNumber, String depositorName, char accountType, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.depositorName = depositorName;
+        this.accountType = accountType;
+        this.balance = initialBalance;
+    }
+    public void displayBalance() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Depositor Name: " + depositorName);
+        System.out.println("Account Type: " + accountType);
+        System.out.println("Balance: Rs." + balance);
+    }
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit of Rs." + amount + " successful.");
+        displayBalance();
+    }
+    public void withdraw(double amount) {
+        if (balance - amount >= 500) {
+            balance -= amount;
+            System.out.println("Withdrawal of Rs." + amount + " successful.");
+        } else {
+            System.out.println("Insufficient balance. Minimum balance of Rs.500 must be maintained.");
+        }
+        displayBalance();
+    }
+}
+class TestBankAccount {
+    public static void main(String[] args) {
+        BankAccount account1 = new BankAccount(100, "Raja", 'S', 8000);
+        account1.displayBalance();
+        account1.deposit(1000);
+        account1.withdraw(2000);
+        BankAccount account2 = new BankAccount(101, "Rani", 'S', 12000);
+        account2.displayBalance();
+        BankAccount account3 = new BankAccount(102, "Ragu", 'W', 8000);
+        account3.withdraw(3000);
+        BankAccount account4 = new BankAccount(103, "Ravi", 'C', 10000);
+        account4.displayBalance();
+    }
+}
+
