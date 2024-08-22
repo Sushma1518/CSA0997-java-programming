@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class Main{
+	public static boolean isPrime(int n) {
+		boolean isPrime=true;
+		for(int i=2;i<=n/2;i++) {
+			if(n%i==0) {
+				isPrime=false;
+				break;
+				
+			}
+		}
+		return isPrime;
+	}
+	public static int Reverse(int n) {
+		int rev=0;
+		while(n!=0) {
+			int dig=n%10;
+			rev=rev*10+dig;
+			n/=10;
+		}
+		return rev;
+	}
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(isPrime(n)) {
+			int reverse=Reverse(n);
+			if(isPrime(reverse) ){
+				System.out.println("yes");
+			}
+			else {
+				System.out.println("No");
+			}
+		}else {
+		System.out.println("No");
+		}
+	}
+}
